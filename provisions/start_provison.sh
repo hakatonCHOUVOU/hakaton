@@ -51,4 +51,13 @@ sudo apt-get install pagekite
 sudo service nginx restart
 sudo service php7.4-fpm restart
 
+echo ">>> Установка доп пакетов для работы с electron:"
+
+sudo apt install libatk1.0-0
+sudo apt install libatk-bridge2.0-0
+sudo apt install libcups2-dev
+sudo apt install libgtk-3-0
+sudo apt install libgdbm-dev
+sudo apt install libgbm1
+
 echo "НА ВСЯКИЙ СЛУЧАЙ ПЕРЕУСТАНОВИ ZSH!!!!!!!"

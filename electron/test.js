@@ -41,11 +41,11 @@ sendingServer.addEventListener("click", async function () {
     if (content.innerHTML === "") {
         console.log("Пусто! Отправка не пройдёт");
     } else {
-        await fetch('https://server-cahef34500.pagekite.me/')
+        await fetch('https://server-cahef34500.pagekite.me/', {method:'POST', body:JSON.stringify({name: content.innerHTML}), headers:{"Content-type":"application/json"}})
             .then(async data => {
                 let text = await data.text();
                 console.log("Отправка прошла");
-                console.log(content.innerHTML);
+                console.log(text);
             })
     }
 

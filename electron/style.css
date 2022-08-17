@@ -1,0 +1,30 @@
+#block {
+    border: 1px solid black;
+    height: 200px;
+    width: 400px;
+    font-size: 16px;
+    font-family: Arial;
+    animation: 5s;
+}
+
+#block:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.button {
+    margin: 5px;
+    padding: 5px;
+    animation: 3s;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    background-color: lightblue;
+}
+
+.button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}

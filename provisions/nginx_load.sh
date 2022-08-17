@@ -126,7 +126,7 @@ http {
     include /etc/nginx/sites-enabled/*;
 }" | sudo tee /etc/nginx/nginx.conf
 
-read -d '' NGINX_SITE <<EOF
+read -d '' NGINX_SITE << EOF
 server {
      	listen 80 default_server;
      	listen [::]:80 default_server;
@@ -139,11 +139,11 @@ server {
      	access_log /var/log/nginx/hakaton.access.log;
      	error_log /var/log/nginx/hakaton.error.log;
 
-     	root /home/testCar/projects/public/;
+     	root /home/hakaton/api/;
 
       index index.php;
 
-      server_name dev-test.ru;
+      server_name hakaton.ru;
 
       location / {
           try_files \$uri \$uri/ =404;
@@ -151,7 +151,7 @@ server {
 
       # Работаем через TCP/IP, потому что UNIX не хочет находить файлы
       location ~ \.php$ {
-          if ($request_method = OPTIONS) {
+          if (\$request_method = OPTIONS) {
               return 200;
           }
 

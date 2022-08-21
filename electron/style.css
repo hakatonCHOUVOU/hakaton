@@ -17,6 +17,7 @@
     margin: 5px;
     padding: 5px;
     animation: 3s;
+    cursor: pointer;
 }
 
 .button:hover {
@@ -37,8 +38,7 @@
     right: 400px;
     top: 20px;
     opacity: 0;
-    width: 130px;
-    height: 40px;
+    padding: 10px;
     box-shadow: 0 10px 20px -5px rgba(0,0,0,0.4);
     border-radius: 7px;
     background-repeat: no-repeat;

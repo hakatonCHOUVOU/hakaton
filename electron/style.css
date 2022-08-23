@@ -1,3 +1,8 @@
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+
 #block {
     border: 1px solid black;
     height: 500px;
@@ -13,22 +18,47 @@
     border-radius: 5px;
 }
 
+.root {
+    padding-right: 1px;
+}
+
+
+.container {
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-left: -65px;
+    margin-top: -20px;
+    width: 130px;
+    height: 40px;
+    text-align: center;
+}
 .button {
+    outline: none;
+    height: 40px;
+    text-align: center;
+    border-radius: 40px;
+    background: #ffffff;
+    border: 2px solid green;
+    color: green;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.25s ease;
     margin: 5px;
     padding: 5px;
-    animation: 3s;
-    cursor: pointer;
 }
 
 .button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    background-color: lightblue;
+    color:white;
+    background: green;
 }
 
 .button:active {
-    transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    letter-spacing: 2px ;
+}
+
+.button:after {
+    content: element(".button");
 }
 
 
@@ -41,9 +71,6 @@
     padding: 10px;
     box-shadow: 0 10px 20px -5px rgba(0,0,0,0.4);
     border-radius: 7px;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
     transition: all 0.5s ease;
     display: flex;
 }
@@ -58,13 +85,39 @@
     color: white;
 }
 
-.nothification.go {
+.nothification.showNotification {
     right: 20px;
     opacity: 1;
 }
 
 #textNotif{
-    background-position: center center;
     font-size: 16px;
-    position: center;
+}
+
+
+#blockSpan {
+    display: flex;
+    right: 500px;
+    position: absolute;
+}
+
+#buttonText {
+    display: flex;
+    position: absolute;
+    right: 500px;
+    top: 20px;
+    opacity: 0;
+    padding: 10px;
+    box-shadow: 0 10px 20px -5px rgba(0,0,0,0.4);
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+#buttonText.showText {
+    right: 0;
+    opacity: 1;
+}
+
+#ShowTextBut {
+    font-size: 16px;
 }

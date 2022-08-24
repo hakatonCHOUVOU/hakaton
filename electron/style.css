@@ -1,22 +1,29 @@
 * {
     font-family: 'Roboto', sans-serif;
 }
+#OneBlock {
+    margin: 10% auto;
+    width: max-content;
+}
 
+#container {
+    width: max-content;
+    margin: 0 auto;
+}
 
 #block {
     border: 1px solid black;
     height: 500px;
     width: 700px;
     font-size: 16px;
-    font-family: Arial;
+    font-family: sans-serif;
     animation: 5s;
     overflow: auto;
+    border-radius: 5px;
+    outline: none;
+    padding: 10px 20px 10px 20px;
 }
 
-#block:hover {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-}
 
 .root {
     padding-right: 1px;
@@ -24,7 +31,6 @@
 
 
 .container {
-    position: absolute;
     top:50%;
     left:50%;
     margin-left: -65px;
@@ -35,17 +41,15 @@
 }
 .button {
     outline: none;
-    height: 40px;
     text-align: center;
-    border-radius: 40px;
+    border-radius: 5px;
     background: #ffffff;
     border: 2px solid green;
     color: green;
-    letter-spacing: 1px;
     cursor: pointer;
     transition: all 0.25s ease;
     margin: 5px;
-    padding: 5px;
+    padding: 5px 20px 5px 20px;
 }
 
 .button:hover {
@@ -54,7 +58,7 @@
 }
 
 .button:active {
-    letter-spacing: 2px ;
+    letter-spacing: 1px ;
 }
 
 .button:after {
@@ -72,7 +76,6 @@
     box-shadow: 0 10px 20px -5px rgba(0,0,0,0.4);
     border-radius: 7px;
     transition: all 0.5s ease;
-    display: flex;
 }
 
 .nothification.green {
@@ -96,20 +99,17 @@
 
 
 #blockSpan {
-    display: flex;
     right: 500px;
     position: absolute;
 }
 
 #buttonText {
-    display: flex;
-    position: absolute;
     right: 500px;
     top: 20px;
     opacity: 0;
     padding: 10px;
     box-shadow: 0 10px 20px -5px rgba(0,0,0,0.4);
-    border-radius: 7px;
+    border-radius: 5px;
     cursor: pointer;
 }
 

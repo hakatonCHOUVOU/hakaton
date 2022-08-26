@@ -4,29 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="style/style.css">
+    <script src = "./libs/notifications.js"></script>
+    <script src = "./libs/utils.js"></script>
     <title>Document</title>
 </head>
 <body>
-<div class="nothification">
-    <span id="textNotif"></span>
-</div>
-
-<div id="blockSpan">
-    <button id="buttonText">
-        <span id="ShowTextBut"></span>
-    </button>
-</div>
-
-<div id="OneBlock">
-    <div contenteditable="true" id="block"></div>
-    <div id="container">
-        <button class="button" id="ToRunServer">Отправить</button>
-        <button class="button" id="copyButton">Скопировать текст</button>
-        <button class="button" id="deleteButton">Удалить текст</button>
+<div id="editor_field">
+    <div contenteditable="true" id="editor_block"></div>
+    <div id="menu_block">
+        <button id="send">Отправить</button>
+        <button id="copyText">Скопировать текст</button>
+        <button id="deleteText">Удалить текст</button>
     </div>
 </div>
 
-<script src="./test.js"></script>
+<script src="./index.js"></script>
 </body>
 </html>

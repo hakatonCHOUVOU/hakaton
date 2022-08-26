@@ -1,0 +1,32 @@
+.notification_block {
+    position: absolute;
+    right: 25px;
+    transition: 0.25s;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 400px;
+    transform: translateX(120%);
+}
+
+.notification_block.show {
+    transform: translateX(0);
+}
+
+.notification_title {
+    margin-top: 0;
+}
+
+.notification_block.information {
+    border: 1px solid #009f91;
+    background-color: #8cb6c4;
+}
+
+.notification_block.success {
+    border: 1px solid #2fff00;
+    background-color: #9cc48c;
+}
+
+.notification_block.error {
+    border: 1px solid #ff0000;
+    background-color: #fcd6d6;
+}

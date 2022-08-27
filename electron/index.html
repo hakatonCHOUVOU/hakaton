@@ -10,38 +10,31 @@
     <title>Document</title>
 </head>
 <body>
-<div id="editor_field">
-    <div contenteditable="true" id="editor_block"></div>
 
-    <div id="menu_block">
-        <button class = "default_button" id="send">Отправить</button>
-        <button class = "default_button" id="copyText">Скопировать текст</button>
-        <button class = "default_button" id="deleteText">Удалить текст</button>
-        <button class = "default_button" id="showAddFilesModal">
-            Добавить файлы
-        </button>
-    </div>
-</div>
-
-<div id = "modal_add-files_field" data-show = 'false'>
-    <div id = "modal_add-files_block">
+<div id = "check-field_dock">
+    <div id = "add-file_field">
         <label for="addFiles">
-            Добавить файлы
-            (Можно перетащить)
+            <div id = "addFiles_container">
+                <h3 id = "title">
+                    Добавить файлы
+                </h3>
+
+                <div id="description">или можете перетащить сюда</div>
+            </div>
         </label>
 
-        <input id ='addFiles' type = "file" multiple="true">
+        <input accept=".doc,.docx" id='addFiles' type="file" multiple="true">
     </div>
 
-    <div id = "modal_added-files_list">
-        <h1>Файлы для отправки</h1>
-
+    <div id = "added-files_field">
         <ul>
 
         </ul>
-
-        <button class = "default_button" id="send-files">Отправить документы на проверку</button>
     </div>
+
+    <button id = "check-documents">
+        Проверить документы
+    </button>
 </div>
 
 <script src="./index.js"></script>

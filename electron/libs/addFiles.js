@@ -2,25 +2,31 @@
     const mammoth       = require('mammoth');
     const addFilesInput = document.getElementById('addFiles');
     const addFilesLabel = document.querySelector('label[for="addFiles"]');
-    const addedFileList = document.querySelector('#modal_added-files_list ul');
-
-    let fileForSend = [];
+    const addedFileList = document.querySelector('#added-files_field ul');
 
     addFilesLabel.addEventListener('dragover', e => e.preventDefault());
     addFilesLabel.addEventListener('drop', async (e) => {
+        setLoader(addedFileList);
+
         let parsedFiles = await getParsedFiles(e.dataTransfer.files);
 
         updateFileToSendList(parsedFiles);
 
         addFilesInput.value = null;
+
+        deleteLoader();
     });
 
     addFilesInput.onchange = async function () {
+        setLoader(addedFileList);
+
         let parsedFiles = await getParsedFiles(this.files);
 
         updateFileToSendList(parsedFiles);
 
         this.value = null;
+
+        deleteLoader();
     };
 
     /**

@@ -48,24 +48,3 @@ sendCheckDocFiles.onclick = async () => {
         });
     });
 };
-
-/**
- * Парсинг текста
- *
- * @param textParse
- *
- * @returns {{offer: string, key: string}}
- */
-function getParseText(textParse) {
-    let start = textParse.indexOf('}');
-    let end   = textParse.indexOf('{', start + 1);
-    let key   = textParse.substring(0, start);
-
-    if (key.includes('{')) {
-        key = key.slice(key.length - 2).replaceAll(/\D/g, '');
-    }
-
-    let offer = textParse.substring(start + 1, end);
-
-    return {key, offer};
-}

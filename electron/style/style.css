@@ -1,7 +1,8 @@
 @import url("notificationStyle.css");
+@import url("modalStyle.css");
 
 body {
-    overflow: hidden;
+    font-family: sans-serif;
 }
 
 #editor_field {
@@ -27,7 +28,7 @@ body {
     margin: 0 auto;
 }
 
-#menu_block button {
+.default_button {
     padding: 10px 18px;
     font-weight: bold;
     font-size: 16px;
@@ -39,10 +40,14 @@ body {
     transition: 0.2s;
 }
 
-#menu_block button:hover {
+.default_button:hover {
     background-color: #0065b9;
 }
 
-#menu_block button:active {
+.default_button:active {
     transform: scale(0.97);
+}
+
+#addFiles {
+    display: none;
 }

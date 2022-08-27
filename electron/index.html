@@ -12,13 +12,39 @@
 <body>
 <div id="editor_field">
     <div contenteditable="true" id="editor_block"></div>
+
     <div id="menu_block">
-        <button id="send">Отправить</button>
-        <button id="copyText">Скопировать текст</button>
-        <button id="deleteText">Удалить текст</button>
+        <button class = "default_button" id="send">Отправить</button>
+        <button class = "default_button" id="copyText">Скопировать текст</button>
+        <button class = "default_button" id="deleteText">Удалить текст</button>
+        <button class = "default_button" id="showAddFilesModal">
+            Добавить файлы
+        </button>
+    </div>
+</div>
+
+<div id = "modal_add-files_field" data-show = 'false'>
+    <div id = "modal_add-files_block">
+        <label for="addFiles">
+            Добавить файлы
+            (Можно перетащить)
+        </label>
+
+        <input id ='addFiles' type = "file" multiple="true">
+    </div>
+
+    <div id = "modal_added-files_list">
+        <h1>Файлы для отправки</h1>
+
+        <ul>
+
+        </ul>
+
+        <button class = "default_button" id="send-files">Отправить документы на проверку</button>
     </div>
 </div>
 
 <script src="./index.js"></script>
+<script src="./libs/addFiles.js"></script>
 </body>
 </html>

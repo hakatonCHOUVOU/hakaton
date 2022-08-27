@@ -1,0 +1,81 @@
+#modal_add-files_field {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.39);
+    align-content: center;
+    top: 0;
+    left: 0;
+    grid-template-rows: 1fr 1fr;
+}
+
+#modal_add-files_field[data-show="true"] {
+    display: grid;
+}
+
+#modal_add-files_field[data-show="false"] {
+    display: none;
+}
+
+#modal_add-files_block {
+    width: 100%;
+    text-align: center;
+    align-self: center;
+}
+
+label[for="addFiles"] {
+    padding: 13%;
+    border: 4px dashed white;
+    font-size: 29px;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+    background-color: #ffffff2e;
+}
+
+label[for="addFiles"]:hover {
+    background-color: white;
+    color: black;
+    border-color: #009f91;
+}
+
+#modal_added-files_list {
+    justify-self: center;
+    margin-top: 20px;
+    background-color: white;
+    height: max-content;
+    padding: 15px;
+    border-radius: 5px;
+    max-width: 760px;
+}
+
+#modal_added-files_list ul {
+    list-style: none;
+    padding: 0;
+}
+
+#modal_added-files_list ul .added_file {
+    width: max-content;
+    background-color: blue;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    float: left;
+    margin-right: 10px;
+    margin-top: 11px;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 1fr 0.1fr;
+}
+
+#modal_added-files_list .delete_file {
+    color: white;
+    margin-left: 8px;
+    padding-top: 0px;
+    display: inline-block;
+}
+
+#modal_added-files_list #send-files {
+    display: block;
+    margin: 0 auto;
+}

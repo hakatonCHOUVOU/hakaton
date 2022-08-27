@@ -1,22 +1,24 @@
-const {app, BrowserWindow} = require('electron');
+const {app, BrowserWindow, ipcMain} = require('electron');
 
 function createWindow() {
     const win = new BrowserWindow({
-        width: 800,
-        height: 600,
-        webPreferences: {
-            nodeIntegration: true
-        }
+        width          : 800,
+        height         : 600,
+        webPreferences : {
+            nodeIntegration: true,
+            contextIsolation: false,
+            enableRemoteModule: true,
+        },
     });
 
-    win.loadFile("index.html");
+    win.loadFile('index.html');
     win.webContents.openDevTools();
 }
 
 app.whenReady().then(createWindow);
 
 app.on('window-all-closed', () => {
-    if(process.platform !== 'darwin') {
+    if (process.platform !== 'darwin') {
         app.quit();
     }
 });

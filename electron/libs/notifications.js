@@ -1,11 +1,12 @@
+const TIME_SHOW_NOTIFICATION_MS = 6000;
+
 /**
  * Функция показа информационной нотификации
  *
  * @param title
  * @param text
- * @param seconds
  */
-function infoNotification(title, text, seconds = 4) {
+function infoNotification(title, text) {
     const notification = getNotification(title, text);
 
     liveLoopNotification(notification, 'information');
@@ -14,10 +15,10 @@ function infoNotification(title, text, seconds = 4) {
 /**
  * Функция для показа успешной
  *
+ * @param title
  * @param text
- * @param seconds
  */
-function successNotification(title, text, seconds = 4) {
+function successNotification(title, text) {
     const notification = getNotification(title, text);
 
     liveLoopNotification(notification, 'success');
@@ -26,10 +27,10 @@ function successNotification(title, text, seconds = 4) {
 /**
  * Функция для показа ошибки
  *
+ * @param title
  * @param text
- * @param seconds
  */
-function errorNotification(title, text, seconds = 4) {
+function errorNotification(title, text) {
     const notification = getNotification(title, text);
 
     liveLoopNotification(notification, 'error');
@@ -57,11 +58,11 @@ function liveLoopNotification(notification = null, classType = 'information') {
         notification.classList.remove('show');
 
         downNotification(notification);
-    }, 4000);
+    }, TIME_SHOW_NOTIFICATION_MS);
 
     setTimeout(() => {
         notification.remove();
-    }, 4500);
+    }, TIME_SHOW_NOTIFICATION_MS + 500);
 }
 
 /**

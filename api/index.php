@@ -1,6 +1,16 @@
 <?php
 
-$restJson = file_get_contents("php://input");
-$post     = json_decode($restJson ?? '{}', true);
+$dataBase = json_decode(file_get_contents("dataBase.json"), true);
+$temp = 0;
+$str = "Понятия, используемые в настоящих Правилах, означают следующее: ";
+foreach ($dataBase as $phraseCluster) {
+    foreach ($phraseCluster as $phrase) {
+        if ($phrase === $str) {
+            $temp++;
 
-echo json_encode($post, true);
+            break;
+        }
+    }
+}
+
+echo print_r($temp, true);

@@ -10,7 +10,7 @@
 
         let parsedFiles = await getParsedFiles(e.dataTransfer.files);
 
-        updateFileToSendList(parsedFiles);
+        prepareFileListForSend(parsedFiles);
 
         addFilesInput.value = null;
 
@@ -22,7 +22,7 @@
 
         let parsedFiles = await getParsedFiles(this.files);
 
-        updateFileToSendList(parsedFiles);
+        prepareFileListForSend(parsedFiles);
 
         this.value = null;
 
@@ -52,8 +52,17 @@
                 continue;
             }
 
-            await mammoth.convertToHtml(fileList[i]).then(function (result) {
-                let stringHtml   = result.value; // The generated HTML
+            let options = {
+                ignoreEmptyParagraphs   : true,
+                idPrefix                : true,
+                includeEmbeddedStyleMap : true,
+            };
+
+            let record = false;
+            let isEnd  = false;
+
+            await mammoth.convertToHtml({buffer : fileList[i]}, options).then(function (result) {
+                let stringHtml   = result.value;
                 let htmlDocument = new DOMParser().parseFromString(stringHtml, 'text/html').body;
 
                 htmlDocument.querySelectorAll('img, table, a, br').forEach(element => {
@@ -64,6 +73,34 @@
                     }
 
                     element.remove();
+                });
+
+                htmlDocument.querySelectorAll('p').forEach(p => {
+                    if (p.innerText.match(/^[0-9]*[.]/)) {
+                        record = true;
+                    }
+
+                    if (p.innerText === 'Утверждено') {
+                        record = false;
+                    } else if (p.innerText === 'Приложение') {
+                        isEnd = true;
+                    }
+
+                    if (!record || isEnd) {
+                        p.remove();
+
+                        return;
+                    }
+
+                    if (p.innerText.toUpperCase() === p.innerText) {
+                        p.remove();
+
+                        return;
+                    }
+
+                    if (p.innerText.split(' ').length < 2) {
+                        p.remove();
+                    }
                 });
 
                 parsedDocuments.push({
@@ -98,32 +135,39 @@
         return fileName.split('.').at(-1);
     }
 
-    function updateFileToSendList(parsedFiles) {
+    /**
+     * Функция для подготовки и отрисовки файлов к отправке
+     *
+     * @param parsedFiles
+     */
+    function prepareFileListForSend(parsedFiles) {
         parsedFiles.forEach(parsedFile => {
-            fileForSend.push(parsedFile);
+            fileForPrepare.push(parsedFile);
         });
 
         addedFileList.innerHTML = '';
 
-        fileForSend.forEach((file) => {
+        fileForPrepare.forEach((file) => {
             let li = document.createElement('li');
             li.classList.add('added_file');
+
+            let fileNameSpan = document.createElement('span');
+            fileNameSpan.classList.add('file_name');
 
             let deleteSpan = document.createElement('span');
             deleteSpan.classList.add('delete_file');
 
-            deleteSpan.innerHTML = '&#10006;';
-            li.innerText         = file.name;
+            deleteSpan.innerHTML   = '&#10006;';
+            fileNameSpan.innerText = file.name;
 
+            li.appendChild(fileNameSpan);
             li.appendChild(deleteSpan);
             addedFileList.appendChild(li);
 
             li.onclick = () => {
-                fileForSend = fileForSend.filter((deleteFile) => deleteFile.name !== file.name);
+                fileForPrepare = fileForPrepare.filter((deleteFile) => deleteFile.name !== file.name);
                 li.remove();
-
-                console.log(fileForSend);
-            }
+            };
         });
     }
 })();

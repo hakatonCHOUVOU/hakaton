@@ -1,5 +1,5 @@
 @import url("notificationStyle.css");
-@import url("modalStyle.css");
+@import url("chekDocStyle.css");
 
 body {
     font-family: sans-serif;
@@ -104,4 +104,35 @@ body {
 
 #back:hover {
     border: 1px solid blue;
+}
+
+.preparing {
+    background-color: white !important;
+    pointer-events: none;
+    cursor: wait;
+}
+
+.checked {
+    background-color: white !important;
+}
+
+.error {
+    background-color:  #ff4d4d !important;
+}
+
+.info {
+    margin-left: 8px;
+    background-color: #d5d5d5;
+    padding: 5px 9px;
+    border-radius: 29px;
+    line-height: 11px;
+}
+
+.file_name {
+    align-self: center;
+}
+
+.document_file_loader {
+    height: 20px;
+    width: max-content;
 }

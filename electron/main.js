@@ -2,8 +2,7 @@ const {app, BrowserWindow} = require('electron');
 
 function createWindow() {
     const win = new BrowserWindow({
-        width          : 800,
-        height         : 600,
+        icon: __dirname + '/icons/doc.png',
         webPreferences : {
             nodeIntegration: true,
             contextIsolation: false,
@@ -12,7 +11,7 @@ function createWindow() {
     });
 
     win.loadFile('index.html');
-    win.webContents.openDevTools();
+    win.maximize();
 }
 
 app.whenReady().then(createWindow);

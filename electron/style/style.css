@@ -3,6 +3,10 @@
 
 body {
     font-family: sans-serif;
+    height: 98vh;
+    width: 99vw;
+    display: grid;
+    background-color: #efefef;
 }
 
 #editor_field {
@@ -50,4 +54,54 @@ body {
 
 #addFiles {
     display: none;
+}
+
+.icon {
+    height: 100%;
+}
+
+#select-check_field {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 72%;
+    justify-self: center;
+    max-width: 1000px;
+}
+
+#select-check_field div {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+#select-check_field button {
+    height: 145px;
+    width: max-content;
+    justify-self: center;
+    padding: 14px;
+    background-color: #e5e5e5;
+    border: 1px solid #ffffff;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.2s;
+}
+
+#select-check_field button:hover {
+    border: 1px solid blue;
+}
+
+#back {
+    font-size: 35px;
+    width: max-content;
+    background-color: #c5c5c5;
+    color: black;
+    height: 35px;
+    line-height: 24px;
+    border-radius: 3px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+#back:hover {
+    border: 1px solid blue;
 }
